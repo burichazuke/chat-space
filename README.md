@@ -44,9 +44,9 @@ Things you may want to cover:
 |password|string|null: false|
 
 ### Association
-- has_many :menbers
+- has_many :members
 - has_many :messages
-- has_many :groups, through: :menbers
+- has_many :groups, through: :members
 
 ## groupsテーブル
 
@@ -55,9 +55,9 @@ Things you may want to cover:
 |name|string|null: false, add_index|
 
 ### Association
-- has_many :menbers
+- has_many :members
 - has_many :messages
-- has_many :users, through: :menbers
+- has_many :users, through: :members
 
 ## messagesテーブル
 |Column|Type|Options|
