@@ -42,8 +42,6 @@ Things you may want to cover:
 |name|string|null: false, add_index|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-|menber_id|integer|null: false, foreign_key: true|
-|message_id|integer|null: false, foreign_key: true|
 
 ### Association
 - has_many :menbers
@@ -55,8 +53,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, add_index|
-|menber_id|integer|null: false, foreign_key: true|
-|message_id|integer|null: false, foreign_key: true|
 
 ### Association
 - has_many :menbers
