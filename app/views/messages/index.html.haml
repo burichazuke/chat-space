@@ -1,0 +1,16 @@
+.wrapper
+  .chat-side
+    .side-header
+      .side-header__box
+        %p.side-header__box__user-name
+          test-username
+        %ul.side-header__box__menu
+          %li.side-header__box__menu__user-edit
+            =link_to "/groups/new" do
+              %i=fa_icon 'edit'
+          %li.side-header__box__menu__new-group
+            =link_to "/users/:id/edit" do
+              %i=fa_icon 'cog'
+    .groups
+      .group
+  .main

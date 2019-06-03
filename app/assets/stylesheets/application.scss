@@ -1,1 +1,41 @@
 @import "./reset";
+@import "font-awesome";
+
+
+.chat-side{
+  background-color: #2f3251;
+  width: 300px;
+  height: 100%;
+  float: left;
+  .side-header{
+    width: 300px;
+    height: 100px;
+    background-color: #253141;
+    align-items: center;
+    &__box{
+      padding: 0 20px;
+      color: #ffffff;
+      clear: both;
+      line-height: 100px;
+      p {
+        float: left;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__menu{
+        float: right;
+        li{
+          display: inline;
+          i{
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+  .groups{
+    width: 300px;
+    height: calc(100vh - 100px);
+    background-color: #2f3e51;
+  }
+}
