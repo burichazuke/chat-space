@@ -1,0 +1,77 @@
+.flash-box
+  .notice
+    グループを作成しました
+
+.header
+  .header-right
+    .header-right__group
+      %h2.header-right__group-name
+        sample-group
+      %ul
+        Member :
+        %li
+          name
+    =link_to "/group/:id/edit", class: "edit" do
+      .edit__btn
+        Edit
+  
+  .header-left
+    .header-left__user
+      %p.header-left__user__name
+        user
+      %ul.header-left__user__menu
+        %li.header-left__user__menu__edit
+          =link_to "/group/new" do
+            %i=fa_icon "edit"
+        %li.header-left__user__menu__group
+          =link_to "/users/:id/edit" do
+            %i=fa_icon "cog"
+
+.contents
+  .groups
+    .group
+      %p.group__group-name
+        sample-group
+      %p.group__latest-message
+        sample-message
+
+    .group
+      %p.group__group-name
+        sample-group
+      %p.group__latest-message
+        sample-message
+
+    .group
+      %p.group__group-name
+        sample-group
+      %p.group__latest-message
+        sample-message
+  
+  .contents-main
+    .messages
+      .message
+        .message__upper-info
+          %p.message__upper-info__talker
+            sample-user
+          %p.message__upper-info__date
+            2019/06/05
+        %p.message__text
+          sample-message
+
+      .message
+        .message__upper-info
+          %p.message__upper-info__talker
+            sample-user
+          %p.message__upper-info__date
+            2019/06/05
+        %p.message__text
+          sample-message
+    
+    .form
+      .new-message
+        .input-box
+          %input.input-box__text{type: "text", name: "massage[conteact]", placeholder: "type a message"}
+          %label.input-box__image{for: "message-image"}
+            %i=fa_icon "image"
+            %input.input-box__image__file{type: "file", name: "message[image]", id: "message-image"}
+        %input.submit-btn{type: "submit",name: "commit", value: "Send"}  
