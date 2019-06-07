@@ -8,7 +8,7 @@
         Member :
         %li
           name
-    =link_to "/group/:id/edit", class: "edit" do
+    =link_to "/groups/:id/edit", class: "edit" do
       .edit__btn
         Edit
   
@@ -18,31 +18,15 @@
         = current_user.name
       %ul.header-left__user__menu
         %li.header-left__user__menu__edit
-          =link_to edit_user_path(current_user) do
+          =link_to new_group_path do
             %i=fa_icon "edit"
         %li.header-left__user__menu__group
-          =link_to "/users/:id/edit" do
+          =link_to edit_user_path(current_user) do
             %i=fa_icon "cog"
 
 .contents
-  .groups
-    .group
-      %p.group__group-name
-        sample-group
-      %p.group__latest-message
-        sample-message
+  = render partial: 'group', locals: { group: @group }
 
-    .group
-      %p.group__group-name
-        sample-group
-      %p.group__latest-message
-        sample-message
-
-    .group
-      %p.group__group-name
-        sample-group
-      %p.group__latest-message
-        sample-message
   
   .contents-main
     .messages

@@ -1,0 +1,18 @@
+.header
+  .header-right
+
+  
+  .header-left
+    .header-left__user
+      %p.header-left__user__name
+        = current_user.name
+      %ul.header-left__user__menu
+        %li.header-left__user__menu__edit
+          =link_to new_group_path do
+            %i=fa_icon "edit"
+        %li.header-left__user__menu__group
+          =link_to edit_user_path(current_user) do
+            %i=fa_icon "cog"
+
+.contents
+  = render partial: 'messages/group', locals: { group: @group }
