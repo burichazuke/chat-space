@@ -3,7 +3,7 @@
   .header-right
     .header-right__group
       %h2.header-right__group-name
-        sample-group
+        = @group.name
       %ul
         Member :
         - @group.users.each do |user|
