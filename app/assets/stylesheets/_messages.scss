@@ -113,6 +113,7 @@
       height: calc(100% - 90px);
       width: 100%;
       box-sizing: border-box;
+      overflow: auto;
       .message{
         &__upper-info{
           display: flex;
