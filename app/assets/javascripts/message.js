@@ -37,7 +37,8 @@ $(function() {
       $('.messages').append(html);
       $('#message_content').val('');
       $('#send').attr('disabled', false);
-
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      
     })
     .fail(function() {
       alert("error");
