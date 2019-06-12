@@ -13,6 +13,7 @@ $(function() {
                 <p class="message__text">
                   ${message.content}
                 </p>
+       
               </div>`
     return html;
   }
@@ -36,9 +37,9 @@ $(function() {
       var html = buildMessage(data);
       $('.messages').append(html);
       $('#message_content').val('');
+      $('#message_image').val('');
       $('#send').attr('disabled', false);
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
-      
     })
     .fail(function() {
       alert("error");
