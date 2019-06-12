@@ -17,11 +17,13 @@ $(function() {
     return html;
   }
 
-
   $('#new_message').on('submit',function(e) {
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action')
+
+
+
     $.ajax({
       url: url,
       type: "POST",
@@ -33,8 +35,9 @@ $(function() {
     .done(function(data) {
       var html = buildMessage(data);
       $('.messages').append(html);
-      $('.message').val('');
-      // $('messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      $('#message_content').val('');
+      $('#send').attr('disabled', false);
+
     })
     .fail(function() {
       alert("error");
