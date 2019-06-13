@@ -24,8 +24,7 @@ $(function() {
   $('#new_message').on('submit',function(e) {
     e.preventDefault();
     var formData = new FormData(this);
-    var url = $(this).attr('action')
-
+    var url = $(this).attr('action');
 
 
     $.ajax({
@@ -38,11 +37,10 @@ $(function() {
     })
     .done(function(data) {
       var html = buildMessage(data);
-      $('.messages').append(html);
-      $('#message_content').val('');
-      $('#message_image').val('');
+      $('.messages').append(html);     
       $('#send').attr('disabled', false);
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      $('#new_message')[0].reset();
     })
     .fail(function() {
       alert("error");
