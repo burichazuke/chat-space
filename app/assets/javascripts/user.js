@@ -1,5 +1,6 @@
 $(function() {
 
+
   var search_list = $('#user-search-result');
 
   function buildHtml(user){
@@ -48,7 +49,6 @@ $(function() {
 
   $(document).on("click", ".chat-group-user__btn--add", function(){
 
-    console.log(this)
     var name = $(this).data('userName');
     var id = $(this).data('userId');
     var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${id}'>
@@ -60,8 +60,7 @@ $(function() {
 
     var par = $(this).parent();
     $(par).remove();
-    
-
+  
   
 
   });
