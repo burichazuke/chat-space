@@ -12,7 +12,6 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    @group.users << current_user
     if @group.save
       redirect_to root_path, notice: 'グループが作成されました'
     else
@@ -21,7 +20,8 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    
+    @group = Group.find(params[:id])
+    @users = @group.users.where.not(id: current_user)
   end
 
 
