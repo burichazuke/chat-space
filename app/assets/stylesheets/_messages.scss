@@ -85,6 +85,9 @@
     padding: 20px;
     box-sizing: border-box;
     overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     .group{
       padding-bottom: 40px;
       a{
