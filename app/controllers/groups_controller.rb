@@ -20,7 +20,8 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    
+    @group = Group.find(params[:id])
+    @users = @group.users.where.not(id: current_user)
   end
 
 
