@@ -35,6 +35,8 @@ $(function() {
         users.forEach(function(user) {
         buildHtml(user);
         });
+      } else if(input.length === 0) {
+        $('#user-search-result').empty();
       } else {
         appendErrMsgToHTML('一致するユーザーはいません');
       }
