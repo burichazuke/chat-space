@@ -32,7 +32,7 @@ $(function() {
       $('#user-search-result').empty();
       if(users.length !== 0 && input.length !== 0) {
         users.forEach(function(user) {
-          buildHtml(user);
+        buildHtml(user);
         });
       } else {
         appendErrMsgToHTML('一致するユーザーはいません');
@@ -48,8 +48,9 @@ $(function() {
 
   $(document).on("click", ".chat-group-user__btn--add", function(){
 
-    var name = $('.chat-group-user__btn--add').data('userName');
-    var id = $('.chat-group-user__btn--add').data('userId');
+    console.log(this)
+    var name = $(this).data('userName');
+    var id = $(this).data('userId');
     var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${id}'>
                   <input name='group[user_ids][]' type='hidden' value='${id}'>
                   <p class='chat-group-user__name'>${name}</p>
@@ -59,9 +60,7 @@ $(function() {
 
     var par = $(this).parent();
     $(par).remove();
-    // 検索結果自体は消せてない
-
-
+    
 
   
 
