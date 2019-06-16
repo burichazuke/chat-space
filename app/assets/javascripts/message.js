@@ -4,7 +4,7 @@ $(function() {
 
     var content =  message.content ? `${message.content}`:``;
     var image = message.image ? `${message.image}`:``;
-    var html =`<div class="message" data-id='${message.id}'>
+    var html =`<div class="message" data-id="${message.id}">
                 <div class="message__upper-info">
                   <p class="message__upper-info__talker">
                     ${message.user_name}
