@@ -16,7 +16,7 @@ $(function() {
                 <p class="message__text">
                   ${content}
                 </p>
-                <img src=${image}>
+                <img src="${image}">
               </div>`
 
     return html;
@@ -67,18 +67,19 @@ $(function() {
     })
     .done(function (messages) {
       console.log(messages)
+      
       //追加するHTMLの入れ物を作る
       var insertHTML = '';
       //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
       messages.forEach(function(message) {
-        insertHTML = buildMessage(message);
-        $('.messages').append(insertHTML);
+        insertHTML += buildMessage(message);
         $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+
       });
       //メッセージが入ったHTMLを取得
       
       //メッセージを追加
-
+      $('.messages').append(insertHTML);
     })
     .fail(function() {
       console.log('error');
