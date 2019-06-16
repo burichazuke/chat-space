@@ -43,11 +43,11 @@ $(function() {
       $('#send').attr('disabled', false);
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       $('#new_message')[0].reset();
-      console.log(html)
 
     })
     .fail(function() {
       alert("error");
+      $('#send').attr('disabled', false);
     })
   })
 
