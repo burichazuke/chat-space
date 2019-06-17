@@ -41,7 +41,6 @@ $(function() {
       $('#send').attr('disabled', false);
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       $('#new_message')[0].reset();
-
     })
     .fail(function() {
       alert("error");
@@ -73,6 +72,9 @@ $(function() {
       alert('自動更新に失敗しました');
     });
   };
+  var reg = location.href.match(/\/groups\/\d+\/messages/)
+  if(reg !== null) {
+    setInterval(reloadMessages, 2000);
+  }
   
-  setInterval(reloadMessages, 2000);
 });
