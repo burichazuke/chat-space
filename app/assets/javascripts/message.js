@@ -4,7 +4,7 @@ $(function() {
 
     var content =  message.content ? `${message.content}`:``;
     var image = message.image ? `${message.image}`:``;
-    var html =`<div class="message" data-id="${message.id}">
+    var html =`<div class="message" data-id="${message.id}" data-group-id="${message.group_id}">
                 <div class="message__upper-info">
                   <p class="message__upper-info__talker">
                     ${message.user_name}
@@ -54,11 +54,12 @@ $(function() {
   var reloadMessages = function() {
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
     var last_message_id = $('.message').last().data('id');
-    console.log(last_message_id);
+    var message_group_id = $('.message').last().data('group-id')
+    console.log(message_group_id);
     
     $.ajax({
       //ルーティングで設定した通りのURLを指定
-      url: "/groups/:group_id/api/messages",
+      url: `/groups/${message_group_id}/api/messages`,
       //ルーティングで設定した通りhttpメソッドをgetに指定
       type: 'get',
       dataType: 'json',
@@ -73,13 +74,14 @@ $(function() {
       //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
       messages.forEach(function(message) {
         insertHTML += buildMessage(message);
-        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+
 
       });
       //メッセージが入ったHTMLを取得
       
       //メッセージを追加
       $('.messages').append(insertHTML);
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
     .fail(function() {
       console.log('error');
