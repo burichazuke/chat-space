@@ -27,8 +27,6 @@ $(function() {
     var formData = new FormData(this);
     var url = $(this).attr('action');
 
-
-
     $.ajax({
       url: url,
       type: "POST",
@@ -52,41 +50,29 @@ $(function() {
   })
 
   var reloadMessages = function() {
-    //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
     var last_message_id = $('.message').last().data('id');
     var message_group_id = $('.message').last().data('group-id')
-    console.log(message_group_id);
     
     $.ajax({
-      //ルーティングで設定した通りのURLを指定
       url: `/groups/${message_group_id}/api/messages`,
-      //ルーティングで設定した通りhttpメソッドをgetに指定
       type: 'get',
       dataType: 'json',
-      //dataオプションでリクエストに値を含める
       data: {id: last_message_id}
     })
+
     .done(function (messages) {
-      console.log(messages)
-      
-      //追加するHTMLの入れ物を作る
       var insertHTML = '';
-      //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
       messages.forEach(function(message) {
         insertHTML += buildMessage(message);
-
-
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       });
-      //メッセージが入ったHTMLを取得
-      
-      //メッセージを追加
       $('.messages').append(insertHTML);
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
+
     .fail(function() {
       console.log('error');
     });
   };
   
-  setInterval(reloadMessages, 5000);
+  setInterval(reloadMessages, 2000);
 });
